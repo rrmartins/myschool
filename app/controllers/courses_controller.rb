@@ -71,7 +71,7 @@ class CoursesController < ApplicationController
     end
 
     def set_ids
-      @course.ids = params[:course][:student_tokens].split(",").uniq
+      @course.ids = params[:course][:student_tokens].split(",")
     end
 
     def get_students
