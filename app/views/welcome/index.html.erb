@@ -1,0 +1,40 @@
+<div class="hero-unit">
+  <h1>Bem-vindo!</h1>
+
+  <span class="label label-success"><%= flash[:notice] %></span>
+
+  <div class="row show-grid">
+    <div class="span5 offset6">
+      <%= link_to "Novo Aluno »", new_student_path, class: "btn btn-primary btn-large" %>
+      <%= link_to "Novo Curso »", new_course_path, class: "btn btn-primary btn-large" %>
+    </div>
+  </div>
+
+  <% if @courses %>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>
+            Curso
+          </th>
+          <th>
+            Alunos
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @courses.each do |course| %>
+          <tr>
+            <td>
+              <%= course.name %>
+            </td>
+            <td>
+              <%= course.students.map(&:name).join(", ") %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

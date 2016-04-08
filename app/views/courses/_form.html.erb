@@ -1,0 +1,21 @@
+<%= simple_form_for(@course) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "Nome" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :status, label: "Ativo" %>
+  </div>
+
+  <div class="hero-unit">
+    <h4>Alunos</h4>
+
+    <p>
+      <%= f.input :student_tokens, label: "Alunos", as: :string, input_html: { :"data-pre" => @course.students.map(&:attributes).to_json } %>
+    </p>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar" %>
+  </div>
+<% end %>

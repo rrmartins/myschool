@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="hero-unit">
+
+  <h2>Curso #<%=@course.id%></h2>
+  <p>
+    <span class="label label-info"><strong>Nome:</strong></span>
+    <%= @course.name %>
+  </p>
+
+  <p>
+    <span class="label label-info"><strong>Descrição:</strong></span>
+    <%= @course.description %>
+  </p>
+
+  <p>
+    <span class="label label-info"><strong>Ativo:</strong></span>
+    <%= @course.status ? ":)" : ":(" %>
+  </p>
+</div>
+
+  <%= link_to 'Edit', edit_course_path(@course), class: "btn" %>
+  <%= link_to 'Back', courses_path, class: "btn" %>

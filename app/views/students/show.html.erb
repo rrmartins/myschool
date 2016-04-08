@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="hero-unit">
+
+  <h2>Aluno #<%=@student.id%></h2>
+  <p>
+    <span class="label label-info"><strong>Nome:</strong></span>
+    <%= @student.name %>
+  </p>
+
+  <p>
+    <span class="label label-info"><strong>Número de Registro:</strong></span>
+    <%= @student.register_number %>
+  </p>
+
+  <p>
+    <span class="label label-info"><strong>Ativo:</strong></span>
+    <%= @student.status ? ":)" : ":(" %>
+  </p>
+</div>
+
+<%= link_to 'Editar', edit_student_path(@student), class: "btn" %>
+<%= link_to 'Lista de Alunos', students_path, class: "btn" %>
