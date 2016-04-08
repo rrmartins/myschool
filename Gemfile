@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.18.4'
 gem 'sass-rails', '~> 5.0'
@@ -64,3 +65,6 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-migrate'
 end
+
+gem 'rails_12factor', group: :production
+ruby "2.2.0"
