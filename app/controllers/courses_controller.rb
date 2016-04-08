@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :set_ids, only: [:create, :update]
   before_action :get_students, only: [:new, :edit]
 
   # GET /courses
@@ -27,7 +26,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
+    set_ids
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Curso criado com sucesso.' }
@@ -42,6 +41,7 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
+    set_ids
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Curso atualizado com sucesso.' }
